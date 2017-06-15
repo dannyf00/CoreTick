@@ -7,8 +7,10 @@
 //reset systick
 void coretick_init(void) {
 	//configure dwt as the time base for millis()/micros()
+#if defined(CoreDebug_DEMCR_TRCENA_Msk)
 	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;		//enable debug tracer
-	//DWT->LAR = 0xC5ACCE55;					//unlock access to dwt, if so equip'd
+#endif
+	//ITM->LAR = 0xC5ACCE55;					//unlock access to dwt, if so equip'd
 	DWT->CTRL |= ITM_TCR_ITMENA_Msk;			//enable dwt cycle count
 }
 
