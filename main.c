@@ -20,8 +20,8 @@ int main(void) {
 	mcu_init();							//reset the  mcu
 	coretick_init();						//reset systick
 	IO_OUT(LED_PORT, LED);						//led3/4 as output
-	tmp=F_CPU;							//read f_cpu - for debugging
-	ei();
+	//tmp=F_CPU;							//read f_cpu - for debugging
+	//ei();								//enable global interrupt
 	while (1) {
 		IO_FLP(LED_PORT, LED);					//flip led
 
